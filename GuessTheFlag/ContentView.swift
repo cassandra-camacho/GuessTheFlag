@@ -46,9 +46,7 @@ struct ContentView: View {
                         Button {
                             flagTapped(number: number)
                         } label: {
-                            Image(countries[number])
-                                .clipShape(.capsule)
-                                .shadow(radius: 5)
+                            FlagView(imageName: countries[number])
                         }
                     }
                     
@@ -105,6 +103,16 @@ struct ContentView: View {
         userScore = 0
         countries.shuffle()
         correctAnswer = Int.random(in:0...2)
+    }
+    
+    struct FlagView: View {
+        var imageName: String
+            
+        var body: some View {
+            Image(imageName)
+                .clipShape(.capsule)
+                .shadow(radius: 5)
+        }
     }
     }
     
